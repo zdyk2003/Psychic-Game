@@ -1,0 +1,30 @@
+body{
+	background-color: #b2c0ff;
+	font-family: 'Arial', 'Verdana', Verdana, sans-serif;
+}
+
+h1,h2{
+	text-align: center;
+}
+
+h1{
+	font-size: 30px;
+	margin-top: 40px;
+}
+
+h2{
+	font-size: 24px;
+}
+.gameBoard{
+	margin-left: 100px;
+}
+
+#crystalBall{
+	height: 200px;
+	width: 220px;
+	margin: 0 auto;
+	display: block;
+	border: 10px solid black;
+}
+
+
