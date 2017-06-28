@@ -1,23 +1,20 @@
 
 // variable for wins, losses, guesses left
 // variable for letter guesses so far
-// variable to reset at end of game
+// reset at end of game
 
 var options= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var wins= 0;
 var losses= 0;
 var guessesLeft= 10;
-var letters= [];
 var guessedLetters= [];
-var reset= "";
 
-var userText = document.getElementById ("userText");
+// var userChoice = document.getElementById ("userChoice");
 		// console.log(userText);
 
 document.onkeyup= function (event) {
 
 	var userChoice= event.key;
-		userText = userChoice;
 		console.log(userChoice);
 
 	var arrIndex= Math.floor(Math.random()* options.length);
@@ -25,23 +22,26 @@ document.onkeyup= function (event) {
 	var computerChoice = options[arrIndex];
 		console.log(computerChoice);
 
-		if (userChoice === computerChoice) {
+		if (guessesLeft===0){
+			guessesLeft= 10;
+			// wins= 0;
+			losses++;
+			guessedLetters=[];
+			}
+		else{	
+			if (userChoice === computerChoice) {
 			wins++
-			guessesLeft--;
+			guessesLeft=10;
+			guessedLetters= [];
 			// alert("wins");
-		} 
-		else 
-			losses++
-			guessesLeft--;
-			// alert("losses");
-
-		for (var i = 1; i < 26; i++){
-			letters.push(guessedLetters);
+			} 
+			else {
+				losses++
+				guessesLeft--;
+				guessedLetters.push(userChoice);
+				// alert("losses");
+			}
 		}
-
-		// if (guessesLeft===0){
-		// 	document.reset();
-		// }
 
 		var html = "<p>Wins: " + wins + "</p>" +
 		"<br>" +
@@ -49,10 +49,10 @@ document.onkeyup= function (event) {
 		"<br>" +
 		"<p>Guesses Left: " + guessesLeft + "</p>" +
 		"<br>" +
-		"<p>Letters you have guessed so far:              " +  guessedLetters  + "</p>";
+		"<p>Letters you have guessed so far: " +  guessedLetters  + "</p>";
 
 		document.querySelector(".gameBoard").innerHTML = html;
-
+			// console.log(guessedLetters);
 		}
 
 
