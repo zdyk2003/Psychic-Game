@@ -27,6 +27,7 @@ document.onkeyup= function (event) {
 			// wins= 0;
 			losses++;
 			guessedLetters=[];
+			alert("Bummer! You can't read my mind");
 			}
 		else{	
 			if (userChoice === computerChoice) {
